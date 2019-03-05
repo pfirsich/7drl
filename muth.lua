@@ -19,6 +19,20 @@ function m.intervalIntersection(aMin, aMax, bMin, bMax)
     end
 end
 
+function m.aabbIntersection(minX1, minY1, minZ1,
+        maxX1, maxY1, maxZ1,
+        minX2, minY2, minZ2,
+        maxX2, maxY2, maxZ2, fudge)
+    fudge = fudge or 0
+    return m.intervalsOverlap(minX1 + fudge, maxX1 - fudge, minX2 + fudge, maxX2 - fudge)
+       and m.intervalsOverlap(minY1 + fudge, maxY1 - fudge, minY2 + fudge, maxY2 - fudge)
+       and m.intervalsOverlap(minZ1 + fudge, maxZ1 - fudge, minZ2 + fudge, maxZ2 - fudge)
+end
+
+function m.translateAABB(x, y, z, minX, minY, minZ, maxX, maxY, maxZ)
+    return x + minX, y + minY, z + minZ, x + maxX, y + maxY, z + maxZ
+end
+
 local function minMax(a, b)
     return math.min(a, b), math.max(a, b)
 end

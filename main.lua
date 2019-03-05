@@ -5,7 +5,7 @@ vec3 = cpml.vec3
 mat4 = cpml.mat4
 
 local shaders = require("shaders")
-local level = require("level")
+local rooms = require("rooms")
 local util = require("util")
 local world = require("world")
 local comp = require("components")
@@ -22,6 +22,8 @@ local texture = kaun.newCheckerTexture(512, 512, 64)
 texture:setWrap("repeat", "repeat")
 
 -- INIT ENTITIES
+rooms.load()
+local levelEntities = room.generateLevel(6)
 local levelInstance = level.new("testlevel.png", 2, 12, 2)
 
 local levelEntity = world:Entity()

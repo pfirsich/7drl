@@ -17,11 +17,11 @@ log.handlers = {
 }
 
 local levelAbbrev = {
-    debug = "DEBG",
-    info = "INFO",
-    warning = "WARN",
-    error = "ERRO",
-    critical = "CRIT",
+    debug = "[DEBG] ",
+    info = "[INFO] ",
+    warning = "[WARN] ",
+    error = "[ERRO] ",
+    critical = "[CRIT] ",
 }
 
 local function assertLevel(level)
